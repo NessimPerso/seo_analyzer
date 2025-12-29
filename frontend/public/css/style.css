@@ -1,0 +1,320 @@
+/* Variables CSS */
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --success-color: #16a34a;
+    --bg-color: #f9fafb;
+    --border-color: #e5e7eb;
+    --text-color: #1f2937;
+    --text-light: #6b7280;
+    --radius: 8px;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset et base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px 0;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+header p {
+    font-size: 1.1em;
+    color: var(--text-light);
+}
+
+/* Formulaire */
+.form-section {
+    background: white;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-family: 'Courier New', monospace;
+    font-size: 0.95em;
+    resize: vertical;
+    min-height: 80px;
+    transition: border-color 0.3s;
+}
+
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Boutons */
+.btn-primary, .btn-secondary {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    background-color: #059669;
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    padding: 40px;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.loading.hidden {
+    display: none;
+}
+
+.spinner {
+    border: 4px solid var(--border-color);
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Résultats */
+.results {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 30px;
+}
+
+.results.hidden {
+    display: none;
+}
+
+.results-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Score Card */
+.score-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+    background: linear-gradient(135deg, var(--primary-color), #1d4ed8);
+    border-radius: var(--radius);
+    color: white;
+    margin-bottom: 30px;
+}
+
+.score-circle {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.score-max {
+    font-size: 0.4em;
+}
+
+.score-info h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.score-info p {
+    font-size: 0.95em;
+    opacity: 0.9;
+}
+
+/* Analyse détaillée */
+.analysis-section, .recommendations-section {
+    margin-bottom: 30px;
+}
+
+.analysis-section h3, .recommendations-section h3 {
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    color: var(--text-color);
+}
+
+.detailed-analysis {
+    display: grid;
+    gap: 15px;
+}
+
+.analysis-item {
+    padding: 15px;
+    border-left: 4px solid var(--border-color);
+    border-radius: var(--radius);
+    background: #f3f4f6;
+}
+
+.analysis-item.success {
+    border-left-color: var(--success-color);
+    background: #f0fdf4;
+}
+
+.analysis-item.failure {
+    border-left-color: var(--danger-color);
+    background: #fef2f2;
+}
+
+.analysis-item-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.analysis-item-icon {
+    font-size: 1.3em;
+}
+
+.analysis-item-comment {
+    font-size: 0.95em;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.analysis-item-recommendation {
+    font-size: 0.9em;
+    color: var(--primary-color);
+    font-style: italic;
+}
+
+/* Recommandations */
+.recommendations-list {
+    list-style: none;
+    padding: 0;
+}
+
+.recommendations-list li {
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: #f0fdf4;
+    border-left: 4px solid var(--success-color);
+    border-radius: var(--radius);
+}
+
+.recommendations-list li::before {
+    content: "✓ ";
+    color: var(--success-color);
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* Messages d'erreur */
+.error-message {
+    padding: 20px;
+    background-color: #fef2f2;
+    border: 1px solid var(--danger-color);
+    border-radius: var(--radius);
+    color: var(--danger-color);
+    margin-bottom: 20px;
+}
+
+.error-message.hidden {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .score-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .form-section {
+        padding: 20px;
+    }
+}

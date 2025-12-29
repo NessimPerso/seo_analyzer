@@ -1,0 +1,16 @@
+{
+  "name": "seo-analyzer-frontend",
+  "version": "1.0.0",
+  "description": "Frontend pour SEO Content Analyzer",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server public -p 3000 -c-1",
+    "dev": "http-server public -p 3000 -c-1"
+  },
+  "keywords": ["seo", "analyzer", "content"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
