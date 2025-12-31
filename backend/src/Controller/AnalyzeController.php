@@ -73,6 +73,8 @@ class AnalyzeController
                isset($input['clientGuidelines']) &&
                isset($input['text']) &&
                !empty(trim($input['text'])) &&
+               strlen($input['editorialGuidelines']) <= MAX_TEXT_LENGTH &&
+               strlen($input['clientGuidelines']) <= MAX_TEXT_LENGTH &&
                strlen($input['text']) <= MAX_TEXT_LENGTH;
     }
 }

@@ -4,29 +4,39 @@
  * Gère les requêtes d'analyse de contenu
  */
 
+// Headers CORS
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 
+// Préflight CORS
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
-    exit();
+    exit;
 }
 
-// Configuration
-require_once '../src/Config/env.php';
+// Seule méthode autorisée : POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['error' => 'Méthode non autorisée. Utilisez POST.']);
+    exit;
+}
 
-// Routeur simple
-$method = $_SERVER['REQUEST_METHOD'];
-$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+// Charger la configuration
+require_once __DIR__ . '/../src/Config/env.php';
 
-// Routes
-if ($method === 'POST' && strpos($path, '/analyze') !== false) {
-    require_once '../src/Controller/AnalyzeController.php';
+// Charger le contrôleur
+require_once __DIR__ . '/../src/Controller/AnalyzeController.php';
+
+// Exécuter l'analyse
+try {
     $controller = new AnalyzeController();
     $controller->analyze();
-} else {
-    http_response_code(404);
-    echo json_encode(['error' => 'Endpoint not found']);
+} catch (Exception $e) {
+    http_response_code(500);
+    echo json_encode([
+        'error' => 'Erreur serveur',
+        'message' => $e->getMessage()
+    ]);
 }

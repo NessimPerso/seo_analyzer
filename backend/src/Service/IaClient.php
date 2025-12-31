@@ -1,6 +1,6 @@
 <?php
 /**
- * Client pour les appels API à l'IA (OpenAI / ChatGPT)
+ * Client pour les appels API à l'IA
  */
 
 class IaClient
@@ -20,7 +20,7 @@ class IaClient
         }
 
         $payload = [
-            'model' => 'gpt-3.5-turbo',
+            'model' => 'gpt-4-turbo',
             'messages' => [
                 [
                     'role' => 'system',

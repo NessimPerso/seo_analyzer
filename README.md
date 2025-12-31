@@ -21,7 +21,7 @@ Outil d'analyse automatisée de contenu qui évalue des textes selon des consign
 
 Allez dans le dossier backend et créez un fichier .env :
 ```
-OPENAI_API_KEY=sk-proj-votre-clé-ici
+OPENAI_API_KEY=proj-votre-clé-ici
 ```
 
 Lancez le serveur PHP depuis backend/public :
@@ -43,9 +43,12 @@ Accédez à l'application sur http://localhost:3000
 
 ## Architecture
 
-Backend PHP avec trois couches : contrôleur pour l'orchestration, services pour OpenAI et scoring, configuration pour les variables d'environnement.
+Backend PHP avec Pattern MVC léger
+- AnalyzeController: Validation des inputs et orchestration
+- IaClient et PromptBuilder : Appels API OpenAI avec construction des prompts
+- ScoringService : Calcul du score global
 
-Frontend HTML/CSS/JavaScript vanille sans dépendances. API communication par requêtes POST JSON.
+Frontend HTML/CSS/JavaScript avec Npm. API communication par requêtes POST JSON.
 
 ## Utilisation
 

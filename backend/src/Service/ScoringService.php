@@ -16,10 +16,9 @@ class ScoringService
         return [
             'globalScore' => min(10, max(0, $globalScore)),
             'isAcceptable' => $globalScore >= 7,
+            'warnings' => $analysis['warnings'] ?? "",
             'decision' => $this->getDecision($globalScore),
             'details' => [
-                'strengths' => $analysis['analysis']['strengths'] ?? [],
-                'weaknesses' => $analysis['analysis']['weaknesses'] ?? [],
                 'detailedFeedback' => $analysis['analysis']['detailedFeedback'] ?? []
             ]
         ];

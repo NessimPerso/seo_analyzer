@@ -31,8 +31,8 @@ async function handleFormSubmit(e) {
         return;
     }
 
-    if (contentText.length > 5000) {
-        showError('Le texte ne doit pas dépasser 5000 caractères');
+    if (contentText.length > 5000 || editorialGuidelines.length > 5000 || clientGuidelines.length > 5000) {
+        showError('Les champs texte ne doivent pas dépasser 5000 caractères');
         return;
     }
 
@@ -72,12 +72,22 @@ function displayResults(response) {
     // Score global
     const scoreCard = document.getElementById('scoreCard');
     scoreCard.style.backgroundColor = getScoreColor(scoring.globalScore);
-    
+
     document.getElementById('globalScore').textContent = Math.round(scoring.globalScore * 10) / 10;
     document.getElementById('decision').textContent = scoring.decision;
     document.getElementById('verdict').textContent = scoring.isAcceptable 
         ? '✅ Contenu acceptable pour publication'
         : '⚠️ Contenu à revoir avant publication';
+
+    // Affichage des warnings
+    const warningsDiv = document.getElementById('warnings');
+    if (Array.isArray(scoring.warnings) && scoring.warnings.length > 0) {
+        warningsDiv.innerHTML = scoring.warnings.map(w => `<div class="warning-item"> ${w}</div>`).join('');
+        warningsDiv.classList.remove('hidden');
+    } else {
+        warningsDiv.innerHTML = '';
+        warningsDiv.classList.add('hidden');
+    }
 
     // Analyse détaillée - Les 4 critères
     const detailedAnalysisDiv = document.getElementById('detailedAnalysis');
