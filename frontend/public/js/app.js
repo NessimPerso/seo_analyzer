@@ -1,6 +1,6 @@
 /**
  * Application principale SEO Content Analyzer
- * Gère l'interface utilisateur et la logique métier
+ * Gère l'interface utilisateur et les interactions
  */
 
 // Éléments du DOM
@@ -63,9 +63,9 @@ async function handleFormSubmit(e) {
     }
 }
 
-/**
- * Affiche les résultats de l'analyse
- */
+
+// Affiche les résultats de l'analyse
+ 
 function displayResults(response) {
     const scoring = response.scoring;
 

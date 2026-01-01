@@ -3,7 +3,7 @@
  * Gère la communication avec le backend
  */
 
-const API_BASE_URL = 'http://localhost:8000/analyze'; // À ajuster selon votre configuration
+const API_BASE_URL = 'http://localhost:8000/analyze';
 
 class APIClient {
     /**
