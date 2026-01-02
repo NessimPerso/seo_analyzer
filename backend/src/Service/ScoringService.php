@@ -26,7 +26,7 @@ class ScoringService
 
     private function getDecision($score)
     {
-        if ($score >= 8.5) {
+        if ($score >= 8) {
             return 'Excellent - Prêt à publication';
         } elseif ($score >= 7) {
             return 'Bon - Prêt à publication avec remarques mineures';

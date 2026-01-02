@@ -20,7 +20,7 @@ class IaClient
         }
 
         $payload = [
-            'model' => 'gpt-4-turbo',
+            'model' => 'gpt-4o-mini',
             'messages' => [
                 [
                     'role' => 'system',
@@ -31,7 +31,7 @@ class IaClient
                     'content' => $prompt
                 ]
             ],
-            'temperature' => 0.7,
+            'temperature' => 0.5,
             'max_tokens' => 2000
         ];
 
